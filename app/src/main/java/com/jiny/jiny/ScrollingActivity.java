@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ScrollingActivity extends AppCompatActivity {
 
@@ -26,6 +27,8 @@ public class ScrollingActivity extends AppCompatActivity {
     EditText ed1,ed2,ed3,ed4,ed5;
     int screenHeight;
     int scrollViewHeight;
+    boolean flag;
+    int keypadHeight;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +80,40 @@ public class ScrollingActivity extends AppCompatActivity {
                 float ed3scrollY = ed3.getY()+(rootheight - scrollViewHeight); // For ScrollView
                 float ed4scrollY = ed4.getY()+(rootheight - scrollViewHeight); // For ScrollView
                 float ed5scrollY = ed5.getY()+(rootheight - scrollViewHeight); // For ScrollView
+
+                if(flag){
+                    boolean diff1 = (ed1scrollY > keypadHeight);
+                    boolean diff2 = (ed2scrollY > keypadHeight);
+                    boolean diff3 = (ed3scrollY > keypadHeight);
+                    boolean diff4 = (ed4scrollY > keypadHeight);
+                    boolean diff5 = (ed5scrollY > keypadHeight);
+
+                    if(diff1){
+                        Toast.makeText(getApplicationContext(),"1 is below",Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(),"1 is above",Toast.LENGTH_LONG).show();
+                    }
+                    if(diff2){
+                        Toast.makeText(getApplicationContext(),"2 is below",Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(),"2 is above",Toast.LENGTH_LONG).show();
+                    }
+                    if(diff3){
+                        Toast.makeText(getApplicationContext(),"3 is below",Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(),"3 is above",Toast.LENGTH_LONG).show();
+                    }
+                    if(diff4){
+                        Toast.makeText(getApplicationContext(),"4 is below",Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(),"4 is above",Toast.LENGTH_LONG).show();
+                    }
+                    if(diff5){
+                        Toast.makeText(getApplicationContext(),"5 is below",Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(),"5 is above",Toast.LENGTH_LONG).show();
+                    }
+                }
                 Log.d("TAG", "onScrollStopped: rootheight"+scrollViewHeight);
                 Log.d("TAG", "onScrollChange: ed1-"+ed1scrollY);
                 Log.d("TAG", "onScrollChange: ed2 -"+ed2scrollY);
@@ -152,13 +189,15 @@ public class ScrollingActivity extends AppCompatActivity {
 
                 // r.bottom is the position above soft keypad or device button.
                 // if keypad is shown, the r.bottom is smaller than that before.
-                int keypadHeight = screenHeight - r.bottom;
+                keypadHeight = screenHeight - r.bottom;
                 Log.wtf("KeyPadHeight",keypadHeight + "");
                 Log.wtf("ScreenHeight",screenHeight + "");
                 if (keypadHeight > screenHeight * 0.15) { // 0.15 ratio is perhaps enough to determine keypad height.
+                    flag = true;
                     Log.wtf("Keyboard","Shown");
                 }
                 else {
+                    flag = false;
                     Log.wtf("Keyboard","Not Shown");
                 }
             }
