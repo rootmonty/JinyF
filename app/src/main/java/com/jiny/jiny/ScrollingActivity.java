@@ -70,6 +70,7 @@ public class ScrollingActivity extends AppCompatActivity {
         });
         scrollView.setOnScrollStoppedListener(new MyScrollView.OnScrollStoppedListener() {
 
+<<<<<<< Updated upstream
             public void onScrollStopped(){
                 int rootheight = scrollView.getScrollY();
                 float ed1scrollY = ed1.getY()+(rootheight - scrollViewHeight); // For ScrollView
@@ -86,6 +87,177 @@ public class ScrollingActivity extends AppCompatActivity {
                 Log.d("TAG", "onScrollStopped: root height - "+rootheight);
 
                 Log.i("TAG", "stopped");
+=======
+
+            public void onScrollStopped() {
+                rootheight = scrollView.getScrollY();
+                viewHideShow();
+
+            }
+        });
+
+
+        ed1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //check for all children lying below
+                //find the coordinates of next views,the middle point
+
+                int[] loc2 = new int[2];
+                ed2.getLocationOnScreen(loc2);
+                int h2 = loc2[1];
+                int[] loc3 = new int[2];
+                ed3.getLocationOnScreen(loc3);
+                int h3 = loc3[1];
+                int[] loc4 = new int[2];
+                ed4.getLocationOnScreen(loc4);
+                int h4 = loc4[1];
+                int[] loc5 = new int[2];
+                ed5.getLocationOnScreen(loc5);
+                int h5 = loc5[1];
+
+                if (flag) {
+                    boolean diff2 = (h2 >(screenHeight-keypadHeight));
+                    boolean diff3 = (h3 > (screenHeight-keypadHeight));
+                    boolean diff4 = (h4 > (screenHeight-keypadHeight));
+                    boolean diff5 = (h5 > (screenHeight-keypadHeight));
+
+                    if (diff2) {
+                        Toast.makeText(getApplicationContext(), "2 is below", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "2 is above", Toast.LENGTH_LONG).show();
+                    }
+                    if (diff3) {
+                        Toast.makeText(getApplicationContext(), "3 is below", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "3 is above", Toast.LENGTH_LONG).show();
+                    }
+                    if (diff4) {
+                        Toast.makeText(getApplicationContext(), "4 is below", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "4 is above", Toast.LENGTH_LONG).show();
+                    }
+                    if (diff5) {
+                        Toast.makeText(getApplicationContext(), "5 is below", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "5 is above", Toast.LENGTH_LONG).show();
+                    }
+                }
+                Log.d("TAG", "onScrollStopped: rootheight" + scrollViewHeight);
+                Log.d("TAG", "onScrollChange: ed2 -" + h2);
+                Log.d("TAG", "onScrollChange: ed3 -" + h3);
+                Log.d("TAG", "onScrollChange: ed4 -" + h4);
+                Log.d("TAG", "onScrollChange: ed5 -" + h5);
+                Log.d("TAG", "onScrollStopped: root height - " + rootheight);
+
+            }
+        });
+
+        ed4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //check for all children lying below
+                //find the coordinates of next views,the middle point
+
+                int[] loc1 = new int[2];
+                ed5.getLocationOnScreen(loc1);
+                int h = loc1[1];
+
+                if (flag) {
+                    boolean diff5 = (h > keypadHeight+100);
+
+                    if (diff5) {
+                        Toast.makeText(getApplicationContext(), "5 is below", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "5 is above", Toast.LENGTH_LONG).show();
+                    }
+                }
+                Log.d("TAG", "onScrollStopped: rootheight" + scrollViewHeight);
+                Log.d("TAG", "onScrollChange: ed5 -" + h);
+                Log.d("TAG", "onScrollStopped: root height - " + rootheight);
+
+            }
+        });
+
+        ed2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //check for all children lying below
+                //find the coordinates of next views,the middle point
+
+
+                int[] loc1 = new int[2];
+                ed3.getLocationOnScreen(loc1);
+                int h3 = loc1[1];
+                int[] loc2 = new int[2];
+                ed4.getLocationOnScreen(loc2);
+                int h4 = loc2[1];
+                int[] loc3 = new int[2];
+                ed5.getLocationOnScreen(loc3);
+                int h5 = loc3[1];
+                if (flag) {
+                    boolean diff3 = (h3 > (screenHeight-keypadHeight)) ;
+                    boolean diff4 = (h4 > (screenHeight-keypadHeight));
+                    boolean diff5 = (h5 > (screenHeight-keypadHeight));
+
+                    if (diff3) {
+                        Toast.makeText(getApplicationContext(), "3 is below", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "3 is above", Toast.LENGTH_LONG).show();
+                    }
+                    if (diff4) {
+                        Toast.makeText(getApplicationContext(), "4 is below", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "4 is above", Toast.LENGTH_LONG).show();
+                    }
+                    if (diff5) {
+                        Toast.makeText(getApplicationContext(), "5 is below", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "5 is above", Toast.LENGTH_LONG).show();
+                    }
+                }
+                Log.d("TAG", "onScrollStopped: rootheight" + scrollViewHeight);
+                Log.d("TAG", "onScrollChange: ed3 -" + h3);
+                Log.d("TAG", "onScrollChange: ed4 -" + h4);
+                Log.d("TAG", "onScrollChange: ed5 -" + h5);
+                Log.d("TAG", "onScrollStopped: root height - " + rootheight);
+
+            }
+        });
+
+        ed3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //check for all children lying below
+                //find the coordinates of next views,the middle point
+
+                int[] loc4 = new int[2];
+                ed4.getLocationOnScreen(loc4);
+                int h4 = loc4[1];
+                int[] loc5 = new int[2];
+                ed5.getLocationOnScreen(loc5);
+                int h5 = loc5[1];
+
+                if (flag) {
+                    boolean diff4 = (h4 > (screenHeight-keypadHeight));
+                    boolean diff5 = (h5 > (screenHeight-keypadHeight));
+
+                    if (diff4) {
+                        Toast.makeText(getApplicationContext(), "4 is below", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "4 is above", Toast.LENGTH_LONG).show();
+                    }
+                    if (diff5) {
+                        Toast.makeText(getApplicationContext(), "5 is below", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "5 is above", Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                Log.d("TAG", "onScrollChange: ed4 -" + h4);
+                Log.d("TAG", "onScrollChange: ed5 -" + h5);
+                Log.d("TAG", "onScrollStopped: root height - " + rootheight);
+>>>>>>> Stashed changes
 
             }
         });
