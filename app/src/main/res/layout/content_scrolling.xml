@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jiny.jiny.MyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.jiny.jiny.ScrollingActivity"
+    tools:showIn="@layout/activity_scrolling"
+    android:id="@+id/scrollView">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/linearLayout">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:text="Ques 1"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tv1"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:text="Ans 1"
+        android:id="@+id/ed1"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:text="Ques 2"
+        android:id="@+id/tv2"
+        android:layout_gravity="center_horizontal"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:text="ans 2"
+        android:id="@+id/ed2"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:text="Ques 3"
+        android:id="@+id/tv3"
+        android:layout_gravity="center_horizontal"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:text="ans 3"
+        android:id="@+id/ed3"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:text="Ques 4"
+        android:id="@+id/tv4"
+        android:layout_gravity="center_horizontal"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:text="ans 4"
+        android:id="@+id/ed4"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:text="Ques 5"
+        android:id="@+id/tv5"
+        android:layout_gravity="center_horizontal"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:text="ans 5"
+        android:id="@+id/ed5"
+        android:layout_gravity="center_horizontal"/>
+</LinearLayout>
+
+</com.jiny.jiny.MyScrollView>
