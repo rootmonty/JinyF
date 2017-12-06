@@ -29,11 +29,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_main);
-        webView = new WebView(this);
+        setContentView(R.layout.activity_main);
+       // webView = new WebView(this);
         linearLayout = findViewById(R.id.linearLayout);
-        //webView = findViewById(R.id.webView);
-        setContentView(webView);
+        webView = findViewById(R.id.webView);
 //        Handler handler = new Handler();
 //        handler.postDelayed(new Runnable() {
 //            @Override
@@ -69,17 +68,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void detectKeyboard(View view){
         final View contentView = view;
-        new Timer().schedule(new TimerTask(){
+        contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
-            public void run() {
-                runOnUiThread(new Runnable(){
+            public void onGlobalLayout() {
+                new Timer().schedule(new TimerTask(){
                     @Override
                     public void run() {
-                        Log.d("TAG", "run: thread running ");
-                        contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                        runOnUiThread(new Runnable(){
                             @Override
-                            public void onGlobalLayout() {
-
+                            public void run() {
+                                Log.d("TAG", "run: thread running ");
                                 Rect r = new Rect();
                                 contentView.getWindowVisibleDisplayFrame(r);
                                 screenHeight = contentView.getRootView().getHeight();
@@ -95,13 +93,13 @@ public class MainActivity extends AppCompatActivity {
                                 else {
                                     Log.wtf("Keyboard","Not Shown");
                                 }
-                            }
+                            };
                         });
-                    };
-                });
-            }
-        }, 0, 2000);
+                    }
+                }, 0, 2000);
 
+            }
+        });
     }
 
 }
