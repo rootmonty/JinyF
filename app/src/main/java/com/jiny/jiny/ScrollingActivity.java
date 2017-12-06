@@ -1,5 +1,6 @@
 package com.jiny.jiny;
 
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +17,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ScrollingActivity extends AppCompatActivity {
 
@@ -26,6 +28,9 @@ public class ScrollingActivity extends AppCompatActivity {
     EditText ed1,ed2,ed3,ed4,ed5;
     int screenHeight;
     int scrollViewHeight;
+    boolean flag;
+    int keypadHeight;
+    int rootheight;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +47,7 @@ public class ScrollingActivity extends AppCompatActivity {
         ed4 = findViewById(R.id.ed4);
         ed5 = findViewById(R.id.ed5);
 
-        detectKeyboard(scrollView);
+        //detectKeyboard(scrollView);
 
 //        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
 //            @Override
@@ -70,28 +75,9 @@ public class ScrollingActivity extends AppCompatActivity {
         });
         scrollView.setOnScrollStoppedListener(new MyScrollView.OnScrollStoppedListener() {
 
-<<<<<<< Updated upstream
-            public void onScrollStopped(){
-                int rootheight = scrollView.getScrollY();
-                float ed1scrollY = ed1.getY()+(rootheight - scrollViewHeight); // For ScrollView
-                float ed2scrollY = ed2.getY()+(rootheight - scrollViewHeight); // For ScrollView
-                float ed3scrollY = ed3.getY()+(rootheight - scrollViewHeight); // For ScrollView
-                float ed4scrollY = ed4.getY()+(rootheight - scrollViewHeight); // For ScrollView
-                float ed5scrollY = ed5.getY()+(rootheight - scrollViewHeight); // For ScrollView
-                Log.d("TAG", "onScrollStopped: rootheight"+scrollViewHeight);
-                Log.d("TAG", "onScrollChange: ed1-"+ed1scrollY);
-                Log.d("TAG", "onScrollChange: ed2 -"+ed2scrollY);
-                Log.d("TAG", "onScrollChange: ed3 -"+ed3scrollY);
-                Log.d("TAG", "onScrollChange: ed4 -"+ed4scrollY);
-                Log.d("TAG", "onScrollChange: ed5 -"+ed5scrollY);
-                Log.d("TAG", "onScrollStopped: root height - "+rootheight);
-
-                Log.i("TAG", "stopped");
-=======
-
             public void onScrollStopped() {
                 rootheight = scrollView.getScrollY();
-                viewHideShow();
+                //viewHideShow();
 
             }
         });
@@ -257,8 +243,6 @@ public class ScrollingActivity extends AppCompatActivity {
                 Log.d("TAG", "onScrollChange: ed4 -" + h4);
                 Log.d("TAG", "onScrollChange: ed5 -" + h5);
                 Log.d("TAG", "onScrollStopped: root height - " + rootheight);
->>>>>>> Stashed changes
-
             }
         });
 
